@@ -10,7 +10,6 @@ import (
 
 func TestMain(m *testing.M) {
 	rest.StartMockupServer()
-
 	os.Exit(m.Run())
 }
 

@@ -14,7 +14,7 @@ type GeoInformation struct {
 
 type GeoLocation struct {
 	Latitude  float64 `json:"latitude"`
-	Longitute float64 `json:"longitude"`
+	Longitude float64 `json:"longitude"`
 }
 
 type State struct {
