@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"fmt"
-	"gotestinginteg/mygolangTesting/api/services"
+	"golang-testing/mygolangTestinggolangTesting/api/services"
 
 	"net/http"
 

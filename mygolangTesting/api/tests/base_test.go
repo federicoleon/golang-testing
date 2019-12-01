@@ -3,7 +3,7 @@ package tests
 import (
 	"fmt"
 	"github.com/mercadolibre/golang-restclient/rest"
-	"gotestinginteg/mygolangTesting/api/app"
+	"golang-testing/mygolangTestinggolangTesting/api/app"
 	"os"
 	"testing"
 )

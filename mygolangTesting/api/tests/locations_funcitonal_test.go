@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"testing"
 
-	"gotestinginteg/mygolangTesting/api/utils/errors"
+	"golang-testing/mygolangTestinggolangTesting/api/utils/errors"
 
 	"github.com/mercadolibre/golang-restclient/rest"
 	"github.com/stretchr/testify/assert"

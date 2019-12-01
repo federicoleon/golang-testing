@@ -1,6 +1,6 @@
 package app
 
-import "gotestinginteg/mygolangTesting/api/controllers"
+import "golang-testing/mygolangTestinggolangTesting/api/controllers"
 
 func mapURLs() {
 	router.GET("/locations/countries/:country_id", controllers.GetCountry)
