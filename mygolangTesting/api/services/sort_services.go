@@ -2,7 +2,7 @@ package services
 
 import (
 	"fmt"
-	"golang-testing/mygolangTestinggolangTesting/api/utils/mysort"
+	"github.com/golang-testing/mygolangTesting/api/utils/mysort"
 )
 
 const (

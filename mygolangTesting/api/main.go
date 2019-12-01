@@ -1,7 +1,7 @@
 package main
 
 import (
-	"golang-testing/mygolangTestinggolangTesting/api/app"
+	"github.com/golang-testing/mygolangTesting/api/app"
 )
 
 func main() {

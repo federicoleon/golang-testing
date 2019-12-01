@@ -6,7 +6,7 @@
 - [Testing and Integration with go](#testing-and-integration-with-go)
     - [Unit Testing and Integration Testing](#unit-testing-and-integration-testing)
         - [Course Repo](#course-repo)
-        - [Types of testing](#types-of-testing)
+        - [Types ofTesting](#types-oftesting)
         - [Artifacts of each Test Type](#artifacts-of-each-test-type)
         - [Pyramid of Tests](#pyramid-of-tests)
         - [Steps to follow when writing a test cast](#steps-to-follow-when-writing-a-test-cast)
@@ -26,17 +26,17 @@
 ### Course Repo
 
 ```sh
-git clone https://github.com/federicoleon/golang-testing.git
+git clone https://github.com/federicoleon/golangTesting.git
 ```
 
-### Types of testing
+### Types ofTesting
 
 ![TestType](Resources/TestTypes.png)
 
 **Unit:** Test code to make sure functions and Modules work
 
-- White box testing (best to encapsulate all logic in testing)
-- Black Box testing: without regard to code
+- White boxTesting (best to encapsulate all logic inTesting)
+- Black BoxTesting: without regard to code
 
 **Integration:** Integrate the modules of teh application not periferal systems.
 
@@ -62,10 +62,10 @@ Not as rich or complete
 
 Tests must be delivered with the application
 
-test must be in the package of the function they are testing
+test must be in the package of the function they areTesting
 File name file_test.go
 Test Funtion Name starts with Test. Ex.
-func TestFunctionName(t *testing.T) {
+func TestFunctionName(t Testing.T) {
     //Init
     //Execute
     //Validate
@@ -92,7 +92,7 @@ go test -cover
 [0 1 2 3 4 5 6 7 8 9]
 PASS
 coverage: 100.0% of statements
-ok      gotestingintegmygolang-testing/utils/sort      0.005s
+ok      gotestingintegutils/sort      0.005s
 PASML-335382:sort jjacob151$
 ```
 
@@ -106,9 +106,9 @@ You must put good validation in the test case.
 
 t.Error Statement will continue to execute after a fail condition.
 
-[Project Integration](mygolang-testing/IntegrationTest.md)
+[Project Integration](IntegrationTest.md)
 
-### [Benchmark Testing](mygolang-testing/BenchmarkTest.md)
+### [Benchmark Testing](BenchmarkTest.md)
 
 Bubble Sort is the worst possible type of Sort Algorithm. Compare to Native Sort using Benchmarks.
 Test different approaches to solving a problem.
@@ -119,7 +119,7 @@ Go Does not have assertions by default; you can create them with error statement
 
 github.com/stretcher/testify/assert
 
-### [API Library](mygolangTesting/api/domain/locations/providerlocations/scenarios.md)
+### [API Library](api/domain/locations/providerlocations/scenarios.md)
 
 merdadolibre/golang-restclient
 
@@ -127,19 +127,19 @@ merdadolibre/golang-restclient
 
 [Countries API](https://api.mercadolibre.com/countries)
 
-[Testing the API](mygolang-testing/api/domain/locations/providerlocations/provider_locations_test.go)
+[Testing the API](api/domain/locations/providerlocations/provider_locations_test.go)
 
-## [Mockups](mygolangTesting/api/domain/locations/providerlocations/provider_locations_test.go#L94)
+## [Mockups](api/domain/locations/providerlocations/provider_locations_test.go#L94)
 
 ```go test -mock```
 
-[rest.StartMockupServer()](mygolangTesting/api/domain/locations/providerlocations/provider_locations_test.go)
+[rest.StartMockupServer()](api/domain/locations/providerlocations/provider_locations_test.go)
 
 ### http using Gin
 
 "github.com/gin-gonic/gin"
 
-[CreateContext](mygolangTesting/api/controllers/controller_locations_test.go)
+[CreateContext](api/controllers/controller_locations_test.go)
 
 Controller call --> Service --> Provider --> API
 ![Controller call --> Service --> Provider --> API](Resources/ArtifactsofTypes.png)
@@ -162,11 +162,11 @@ github.com/stretchr/testify/mock
 
 Using MVC Model View Controller Architecture
 
-Commandline testing
+CommandlineTesting
 
 ```sh
 go test -cover
-?       gotestinginteg/mygolangTesting/api      [no test files]
+?       api      [no test files]
 PASML-335382:api jjacob151$ cd controllers/
 PASML-335382:controllers jjacob151$ go test -cover
 Init Service
@@ -185,7 +185,7 @@ Inside Controller
 Inside Controller
 this is the result {BR Brasil 3.00+GMT {{0 0}} []}PASS
 coverage: 100.0% of statements
-ok      gotestinginteg/mygolangTesting/api/controllers  0.020s
+ok      api/controllers  0.020s
 ```
 
 ### Black Box Test
@@ -196,7 +196,7 @@ Brief test run
 
 ```sh
  go test .
-ok      gotestinginteg/mygolangTesting/api/controllers  (cached)
+ok      api/controllers  (cached)
 ```
 
 Verbose Test Run
@@ -222,10 +222,10 @@ Inside Controller
 Inside Controller
 this is the result {BR Brasil 3.00+GMT {{0 0}} []}--- PASS: TestGetCountryNoError (0.00s)
 PASS
-ok      gotestinginteg/mygolangTesting/api/controllers  (cached)
+ok      api/controllers  (cached)
 ```
 
-### [Tests in In test folder](mygolangTesting/api/tests/base_test.go)
+### [Tests in In test folder](api/tests/base_test.go)
 
 1. Put all tests in a single folder
 2. Use one test main function
@@ -237,13 +237,13 @@ ok      gotestinginteg/mygolangTesting/api/controllers  (cached)
 
 ```sh
 $ go test -cover ./...
-?       gotestinginteg/mygolangTesting/api      [no test files]
-?       gotestinginteg/mygolangTesting/api/app  [no test files]
-ok      gotestinginteg/mygolangTesting/api/controllers  (cached)        coverage: 100.0% of statements
-?       gotestinginteg/mygolangTesting/api/domain/locations     [no test files]
-ok      gotestinginteg/mygolangTesting/api/domain/locations/providerlocations   (cached)        coverage: 93.3% of statements
-ok      gotestinginteg/mygolangTesting/api/services     0.016s  coverage: 50.0% of statements
-ok      gotestinginteg/mygolangTesting/api/tests        (cached)        coverage: 0.0% of statements
-?       gotestinginteg/mygolangTesting/api/utils/errors [no test files]
-ok      gotestinginteg/mygolangTesting/api/utils/mysort 0.017s  coverage: 100.0% of statements
+?       api      [no test files]
+?       api/app  [no test files]
+ok      api/controllers  (cached)        coverage: 100.0% of statements
+?       api/domain/locations     [no test files]
+ok      api/domain/locations/providerlocations   (cached)        coverage: 93.3% of statements
+ok      api/services     0.016s  coverage: 50.0% of statements
+ok      api/tests        (cached)        coverage: 0.0% of statements
+?       api/utils/errors [no test files]
+ok      api/utils/mysort 0.017s  coverage: 100.0% of statements
 ```
