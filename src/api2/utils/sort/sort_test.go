@@ -3,10 +3,30 @@ package sort
 import (
 	"github.com/stretchr/testify/assert"
 	"testing"
+	"time"
 )
 
 func TestBubbleSortIncreasingOrder(t *testing.T) {
 	elements := GetElements(10)
+
+	timeoutChan := make(chan bool, 1)
+	defer close(timeoutChan)
+
+	go func() {
+		BubbleSort(elements)
+		timeoutChan <- false
+	}()
+
+	// Timeout settings
+	go func() {
+		time.Sleep(50 * time.Millisecond)
+		timeoutChan <- true
+	}()
+
+	if <- timeoutChan {
+		assert.Fail(t, "bubble sort took more than 50 ms")
+		return
+	}
 
 	BubbleSort(elements)
 
@@ -20,13 +40,8 @@ func TestSortIncreasingOrder(t *testing.T) {
 
 	Sort(elements)
 
-	if elements[0] != 0 {
-		t.Error("first element should be 0")
-	}
-
-	if elements[len(elements)-1] != 9 {
-		t.Error("last elements should be 9")
-	}
+	assert.EqualValues(t, 0, elements[0], "first element should be 0")
+	assert.EqualValues(t, 9, elements[len(elements)-1], "last elements should be 9")
 }
 
 func BenchmarkBubbleSort(b *testing.B) {
